@@ -1,10 +1,8 @@
 module PagesHelper
+
+  # Returns full title per page.
   def full_title(page_title = '')
     base_title = 'Sample App'
-    if page_title.empty?
-      base_title
-    else
-      "#{page_title} | #{base_title}"
-    end
+    page_title.empty? ? base_title : "#{page_title} | #{base_title}"
   end
 end
