@@ -4,25 +4,20 @@
 html {
   overflow-y: scroll;
 }
-
 body {
   padding-top: 60px;
 }
-
 section {
   overflow: auto;
 }
-
 textarea {
   resize: vertical;
 }
-
 .center {
   text-align: center;
-}
-
-.center h1 {
-  margin-bottom: 10px;
+  h1 {
+    margin-bottom: 10px;
+  }
 }
 
 /* typo */
@@ -36,7 +31,6 @@ h1 {
   margin-bottom: 30px;
   text-align: center;
 }
-
 h2 {
   font-size: 1.2em;
   letter-spacing: -1px;
@@ -44,7 +38,6 @@ h2 {
   text-align: center;
   font-weight: normal;
 }
-
 p {
   font-size: 1.1em;
   line-heigth: 1.7em;
@@ -66,8 +59,30 @@ p {
   letter-spacing: -1px;
   padding-top: 9px;
   font-weight: bold;
+  &:hover {
+    color: #fff;
+    text-decoration: none;
+  }
 }
-#logo.hover {
-  color: #fff;
-  text-decoration: none;
+
+/* footer */
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid #eaeaea;
+  color: #777;
+  small {
+    float: left;
+  }
+  a {
+    color: #555;
+  }
+  ul {
+    float: right;
+    list-style: none;
+    li {
+      float: left;
+      margin-left: 15px;
+    }
+  }
 }
