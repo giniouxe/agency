@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  root 'pages#home'
 
-  get 'pages/help'
+  root            'pages#home'
 
-  get 'pages/about'
+  get 'help'      => "pages#help"
+  get 'about'     => "pages#about"
+  get 'contact'   => "pages#contact"
 end
