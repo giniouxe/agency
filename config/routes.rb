@@ -3,4 +3,6 @@ Rails.application.routes.draw do
 
   get 'contact'   => "pages#contact"
   get 'signup'    => "users#new"
+
+  resources :users
 end
