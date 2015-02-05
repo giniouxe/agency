@@ -1,6 +1,11 @@
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
 
+$dark-violet: #8e4e8e;
+$strong-dark-violet: #774177;
+$black-violet: #2f1a2f;
+$very-light-grey: #f2f2f2;
+
 html {
   overflow-y: scroll;
 }
@@ -65,6 +70,11 @@ p {
   }
 }
 
+#beta {
+  color: $very-light-grey;
+  padding-top: 12px;
+}
+
 /* footer */
 footer {
   margin-top: 45px;
@@ -84,5 +94,16 @@ footer {
       float: left;
       margin-left: 15px;
     }
+  }
+}
+
+/* buttons */
+.btn-default {
+  background-color: $dark-violet;
+  color: $very-light-grey;
+  border: $black-violet;
+  &:hover {
+    background-color: $strong-dark-violet;
+    color: $very-light-grey;
   }
 }
