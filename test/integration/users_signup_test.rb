@@ -17,7 +17,18 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
                                           email: "foobar@example.com",
                                           password: "foobar",
                                           password_confirmation: "foobar"}
-      end
-      assert_template 'users/show'
     end
+    assert_template 'users/show'
+  end
+
+  test "should display error messages" do
+    get signup_path
+    assert_no_difference 'User.count' do
+      post users_path, user: {name: "", email: "foo@invalid",
+        password: "foobar", password_confirmation: "foo"}
+      end
+      assert_template 'users/new'
+      assert_select "div", :attributes => {:id => 'error-explaination'}
+      assert_select "div", :attributes => {:class => 'field_with_error'}
+  end
 end
