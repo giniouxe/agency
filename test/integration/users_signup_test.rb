@@ -31,4 +31,17 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
       assert_select "div", :attributes => {:id => 'error-explaination'}
       assert_select "div", :attributes => {:class => 'field_with_error'}
   end
+
+  test "welcome flash if user saved" do
+    get signup_path
+    assert_difference 'User.count', 1 do
+      post_via_redirect users_path, user: {name: "Foo Bar",
+        email: "foobar@example.com",
+        password: "foobar",
+        password_confirmation: "foobar"}
+      end
+      assert_template 'users/show'
+      assert_not flash.nil?
+      assert_select "div", :attributes => {class: "alert alert-succes", content: "Bienvenue chez Solicom"}
+    end
 end
