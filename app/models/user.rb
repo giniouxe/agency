@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessor: remember_token
+  attr_accessor :remember_token
 
   before_save { self.email = email.downcase }
   validates :name, presence: true, length: 4..50
@@ -23,5 +23,9 @@ class User < ActiveRecord::Base
   def remember
     self.remember_token = User.new_token
     update_attribute(:remember_digest, User.digest(remember_token))
+  end
+
+  def authenticated?(remember_token)
+    BCrypt::Password.new(remember_digest).is_password?(remember_token)
   end
 end
