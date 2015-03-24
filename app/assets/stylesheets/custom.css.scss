@@ -59,7 +59,7 @@ h2 {
 
 p {
   font-size: 1.1em;
-  line-heigth: 1.7em;
+  line-height: 1.7em;
 }
 
 /*images*/
@@ -145,7 +145,7 @@ footer {
 /* forms */
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   width: 100%;
   @include box_sizing;
 }
@@ -167,4 +167,17 @@ input {
   .form-control {
     color: $state-danger-text;
   }
+}
+
+.checkbox {
+  margin-bottom: 10px;
+  span {
+    margin-left: 20px;
+    font-weight: normal;
+  }
+}
+
+#session_remember_me {
+  width: auto;
+  margin-left: 0;
 }
