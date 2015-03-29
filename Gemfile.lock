@@ -68,6 +68,8 @@ GEM
     execjs (2.2.2)
     fabrication (2.12.2)
     ffi (1.9.6)
+    font-awesome-sass (4.3.2.1)
+      sass (~> 3.2)
     formatador (0.2.5)
     globalid (0.3.0)
       activesupport (>= 4.1.0)
@@ -226,6 +228,7 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.1.0)
   fabrication
+  font-awesome-sass
   guard-minitest (= 2.3.1)
   jbuilder (~> 2.0)
   jquery-rails
