@@ -10,11 +10,14 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'bootstrap-sass', '3.2.0.0'
+gem 'bcrypt'
 
 group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
   gem 'spring'
+  gem 'fabrication'
+  gem 'rubocop'
 end
 
 group :test do
