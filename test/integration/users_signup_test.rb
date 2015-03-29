@@ -29,6 +29,6 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     assert_not flash.nil?
     assert_select 'div', attributes: {
       class: 'alert alert-succes',
-      content: 'Bienvenue chez Solicom' }
+      content: 'Welcome to Agency' }
   end
 end
