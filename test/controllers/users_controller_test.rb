@@ -7,6 +7,11 @@ class UsersControllerTest < ActionController::TestCase
       email: 'foobar@example.com',
       password: 'foobar',
       password_confirmation: 'foobar')
+    @other_user = User.create(
+      name: 'Fizzbuzz',
+      email: 'fizzbuzz@example.com',
+      password: 'fizzbuzz',
+      password_confirmation: 'fizzbuzz')
   end
 
   test 'should get new' do
@@ -39,5 +44,19 @@ class UsersControllerTest < ActionController::TestCase
     patch :update, id: @user, user: { name: @user.name, email: @user.email }
     assert_not flash.empty?
     assert_redirected_to login_path
+  end
+
+  test 'edit should redirect to login page when wrong user' do
+    log_in_as(@other_user, password: 'fizzbuzz')
+    get :edit, id: @user
+    assert flash.empty?
+    assert_redirected_to root_path
+  end
+
+  test 'update should redirect to login page when wrong user' do
+    log_in_as(@other_user, password: 'fizzbuzz')
+    patch :edit, id: @user, user: { name: @user.name, email: @user.email }
+    assert flash.empty?
+    assert_redirected_to root_path
   end
 end
