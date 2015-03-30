@@ -40,4 +40,23 @@ class UsersEditTest < ActionDispatch::IntegrationTest
     assert_equal @user.name, new_name
     assert_equal @user.email, new_email
   end
+
+  test 'successful edit with helpful forwarding' do
+    get edit_user_path(@user)
+    log_in_as(@user, password: 'croquettes')
+    assert_redirected_to edit_user_path(@user), "Should be redirected sur user edit page"
+    new_name = 'Charlie The Cat'
+    new_email = 'thecat@example.com'
+    patch user_path(@user), user: {
+      name: new_name,
+      email: new_email,
+      password: '',
+      password_confirmation: ''
+    }
+    assert_not flash.empty?, 'Flash should not be empty'
+    assert_redirected_to @user, 'Should be redirected to user page'
+    @user.reload
+    assert_equal @user.name, new_name
+    assert_equal @user.email, new_email
+  end
 end

@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       log_in(@user)
-      flash[:success] = "Welcome to Agency"
+      flash[:success] = 'Welcome to Agency'
       redirect_to @user
     else
       render 'new'
@@ -42,6 +42,7 @@ class UsersController < ApplicationController
 
     def logged_in_user
       unless logged_in?
+        store_location
         flash[:danger] = 'You must be logged in to access this page.'
         redirect_to login_path
       end
