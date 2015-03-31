@@ -2,12 +2,12 @@ require 'test_helper'
 
 class UsersControllerTest < ActionController::TestCase
   def setup
-    @user = User.create(
+    @user = Fabricate(:user,
       name: 'Foobar',
       email: 'foobar@example.com',
       password: 'foobar',
       password_confirmation: 'foobar')
-    @other_user = User.create(
+    @other_user = Fabricate(:user,
       name: 'Fizzbuzz',
       email: 'fizzbuzz@example.com',
       password: 'fizzbuzz',
