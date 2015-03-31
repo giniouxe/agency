@@ -64,19 +64,20 @@ h2 {
   font-weight: normal;
 }
 
+h3 {
+  font-size: 1.8em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  font-weight: normal;
+}
+
 p {
   font-size: 1.1em;
   line-height: 1.7em;
 }
 
-/*images*/
-#agency-logo {
-  width: 25%;
-  height: auto;
-}
-
 /* header */
-#logo {
+#header-logo {
   float: left;
   margin-right: 10px;
   font-size: 1.7em;
@@ -90,6 +91,17 @@ p {
     text-decoration: none;
   }
 }
+
+/* logo */
+#inpage-logo {
+  font-size: 4em;
+  margin-left: 5px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  font-weight: bold;
+}
+
 
 /* sidebar */
 aside {
