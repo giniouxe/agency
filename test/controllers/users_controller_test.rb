@@ -7,6 +7,7 @@ class UsersControllerTest < ActionController::TestCase
       email: 'foobar@example.com',
       password: 'foobar',
       password_confirmation: 'foobar')
+
     @other_user = Fabricate(:user,
       name: 'Fizzbuzz',
       email: 'fizzbuzz@example.com',
@@ -70,5 +71,15 @@ class UsersControllerTest < ActionController::TestCase
     log_in_as(@user, password: 'foobar')
     get :show, id: @user
     assert_select 'aside', attributes: { class: 'col-md-4' }
+  end
+
+  test 'admin attribute cannot be updated via the web' do
+    log_in_as(@other_user, password: 'fizzbuzz')
+    assert_not @other_user.admin?
+    patch :update, id: @other_user, user: {
+      password: @other_user.password,
+      password_confirmation: @other_user.password,
+      admin: true }
+    assert_not @other_user.reload.admin?
   end
 end
