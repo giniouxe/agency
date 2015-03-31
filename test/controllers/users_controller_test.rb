@@ -19,21 +19,6 @@ class UsersControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test 'sould get show' do
-    get :show, id: @user
-    assert_response :success
-  end
-
-  test 'user profile should show gravatar image' do
-    get :show, id: @user
-    assert_select 'img', attributes: { class: 'gravatar' }
-  end
-
-  test 'user profile should have user info sidebar' do
-    get :show, id: @user
-    assert_select 'aside', attributes: { class: 'col-md-4' }
-  end
-
   test 'edit should redirect to login page when user not logged in' do
     get :edit, id: @user
     assert_not flash.empty?
@@ -58,5 +43,32 @@ class UsersControllerTest < ActionController::TestCase
     patch :edit, id: @user, user: { name: @user.name, email: @user.email }
     assert flash.empty?
     assert_redirected_to root_path
+  end
+
+  test 'index should redirect to login page when not logged in' do
+    get :index
+    assert_redirected_to login_path
+  end
+
+  test 'show user should redirect to login page when not logged in' do
+    get :show, id: @user
+    assert_redirected_to login_path
+  end
+
+  test 'show other user should redirect to login page when not logged in' do
+    get :show, id: @other_user
+    assert_redirected_to login_path
+  end
+
+  test 'user profile should show gravatar image' do
+    log_in_as(@user, password: 'foobar')
+    get :show, id: @user
+    assert_select 'img', attributes: { class: 'gravatar' }
+  end
+
+  test 'user profile should have user info sidebar' do
+    log_in_as(@user, password: 'foobar')
+    get :show, id: @user
+    assert_select 'aside', attributes: { class: 'col-md-4' }
   end
 end
