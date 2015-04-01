@@ -44,7 +44,8 @@ class UsersEditTest < ActionDispatch::IntegrationTest
   test 'successful edit with helpful forwarding' do
     get edit_user_path(@user)
     log_in_as(@user, password: 'croquettes')
-    assert_redirected_to edit_user_path(@user), "Should be redirected sur user edit page"
+    assert_redirected_to edit_user_path(@user), 'Should redirect to user edit'
+    assert session[:forwarding_url].nil?
     new_name = 'Charlie The Cat'
     new_email = 'thecat@example.com'
     patch user_path(@user), user: {
