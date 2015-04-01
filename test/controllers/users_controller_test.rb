@@ -82,4 +82,19 @@ class UsersControllerTest < ActionController::TestCase
       admin: true }
     assert_not @other_user.reload.admin?
   end
+
+  test 'destroy should redirect to login when user not logged in' do
+    assert_no_difference 'User.count' do
+      delete :destroy, id: @user
+    end
+    assert_redirected_to login_path
+  end
+
+  test 'destroy should redirect to home when not logged as admin' do
+    log_in_as(@other_user, password: 'fizzbuzz')
+    assert_no_difference 'User.count' do
+      delete :destroy, id: @user
+    end
+    assert_redirected_to root_path
+  end
 end
