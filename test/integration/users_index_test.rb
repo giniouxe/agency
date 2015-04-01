@@ -3,17 +3,13 @@ require 'test_helper'
 class UsersIndexTest < ActionDispatch::IntegrationTest
   def setup
     @user = Fabricate(:user,
-      name: 'Foobar',
-      email: 'foobar@example.com',
-      password: 'foobar',
-      password_confirmation: 'foobar')
+                      name: 'Foobar', email: 'foobar@example.com',
+                      password: 'foobar', password_confirmation: 'foobar')
 
     @admin = Fabricate(:user,
-      name: 'Fizzbuzz',
-      email: 'fizzbuzz@example.com',
-      password: 'fizzbuzz',
-      password_confirmation: 'fizzbuzz',
-      admin: true)
+                       name: 'Fizzbuzz', email: 'fizzbuzz@example.com',
+                       password: 'fizzbuzz', password_confirmation: 'fizzbuzz',
+                       admin: true)
 
     Fabricate.times(30, :user) do
       name { Faker::Name.name }

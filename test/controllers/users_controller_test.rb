@@ -3,16 +3,16 @@ require 'test_helper'
 class UsersControllerTest < ActionController::TestCase
   def setup
     @user = Fabricate(:user,
-      name: 'Foobar',
-      email: 'foobar@example.com',
-      password: 'foobar',
-      password_confirmation: 'foobar')
+                      name: 'Foobar',
+                      email: 'foobar@example.com',
+                      password: 'foobar',
+                      password_confirmation: 'foobar')
 
     @other_user = Fabricate(:user,
-      name: 'Fizzbuzz',
-      email: 'fizzbuzz@example.com',
-      password: 'fizzbuzz',
-      password_confirmation: 'fizzbuzz')
+                            name: 'Fizzbuzz',
+                            email: 'fizzbuzz@example.com',
+                            password: 'fizzbuzz',
+                            password_confirmation: 'fizzbuzz')
   end
 
   test 'should get new' do
