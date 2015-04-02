@@ -7,9 +7,12 @@
 <p>
   Welcome to the Agency's blog.
 </p>
-
 <p>
-  Click on the link below to avtivate your account:
+  Click on the link below to activate your account:
 </p>
 
 <%= link_to 'Activate your account', edit_account_activation_url(@user.activation_token, email: @user.email) %>
+
+<p>
+  The Agency Team.
+</p>
