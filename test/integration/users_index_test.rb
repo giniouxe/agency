@@ -4,18 +4,22 @@ class UsersIndexTest < ActionDispatch::IntegrationTest
   def setup
     @user = Fabricate(:user,
                       name: 'Foobar', email: 'foobar@example.com',
-                      password: 'foobar', password_confirmation: 'foobar')
+                      password: 'foobar', password_confirmation: 'foobar',
+                      activated: true, activated_at: Time.zone.now)
 
     @admin = Fabricate(:user,
                        name: 'Fizzbuzz', email: 'fizzbuzz@example.com',
                        password: 'fizzbuzz', password_confirmation: 'fizzbuzz',
-                       admin: true)
+                       admin: true, activated: true,
+                       activated_at: Time.zone.now)
 
     Fabricate.times(30, :user) do
       name { Faker::Name.name }
       email { |attrs| "#{attrs[:name].parameterize}@example.com" }
       password { 'password' }
       password_confirmation { 'password' }
+      activated { true }
+      activated_at { Time.zone.now }
     end
   end
 

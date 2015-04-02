@@ -2,17 +2,20 @@ require 'test_helper'
 
 class UsersControllerTest < ActionController::TestCase
   def setup
-    @user = Fabricate(:user,
-                      name: 'Foobar',
-                      email: 'foobar@example.com',
-                      password: 'foobar',
-                      password_confirmation: 'foobar')
-
-    @other_user = Fabricate(:user,
-                            name: 'Fizzbuzz',
+    @user = Fabricate(:user, name: 'Foobar', email: 'foobar@example.com',
+                      password: 'foobar', password_confirmation: 'foobar',
+                      activated: true, activated_at: Time.zone.now)
+    @other_user = Fabricate(:user, name: 'Fizzbuzz',
                             email: 'fizzbuzz@example.com',
                             password: 'fizzbuzz',
-                            password_confirmation: 'fizzbuzz')
+                            password_confirmation: 'fizzbuzz',
+                            activated: true,
+                            activated_at: Time.zone.now)
+    @inactive_user = Fabricate(:user, name: 'Inactive',
+                            email: 'inactive@example.com',
+                            password: 'inactive',
+                            password_confirmation: 'inactive',
+                            activated: false)
   end
 
   test 'should get new' do
@@ -95,6 +98,12 @@ class UsersControllerTest < ActionController::TestCase
     assert_no_difference 'User.count' do
       delete :destroy, id: @user
     end
+    assert_redirected_to root_path
+  end
+
+  test 'show should redirect to home page when inactivated user' do
+    log_in_as(@user, password: 'foobar')
+    get :show, id: @inactive_user
     assert_redirected_to root_path
   end
 end

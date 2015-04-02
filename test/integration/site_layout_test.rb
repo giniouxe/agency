@@ -2,9 +2,9 @@ require 'test_helper'
 
 class SiteLayoutTest < ActionDispatch::IntegrationTest
   def setup
-    @user = Fabricate(:user,
-                      name: 'Foobar', email: 'foobar@example.com',
-                      password: 'foobar', password_confirmation: 'foobar')
+    @user = Fabricate(:user, name: 'Foobar', email: 'foobar@example.com',
+                      password: 'foobar', password_confirmation: 'foobar',
+                      activated: true, activated_at: Time.zone.now)
   end
 
   test 'layout links' do

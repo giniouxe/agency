@@ -2,11 +2,10 @@ require 'test_helper'
 
 class UsersLoginTest < ActionDispatch::IntegrationTest
   def setup
-    @user = Fabricate(
-      :user,
-      name: 'Charlie',
-      email: 'charlie@example.com',
-      password: 'croquettes')
+    @user = Fabricate(:user,
+                      name: 'Charlie', email: 'charlie@example.com',
+                      password: 'croquettes', activated: true,
+                      activated_at: Time.zone.now)
   end
 
   test 'login with invalid informations' do
