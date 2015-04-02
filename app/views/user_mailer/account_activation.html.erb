@@ -1,0 +1,15 @@
+<h1>
+  Agency's blog
+</h1>
+<p>
+  Hello <%= @user.name %>,
+</p>
+<p>
+  Welcome to the Agency's blog.
+</p>
+
+<p>
+  Click on the link below to avtivate your account:
+</p>
+
+<%= link_to 'Activate your account', edit_account_activation_path(@user.activation_token, email: @user.email) %>

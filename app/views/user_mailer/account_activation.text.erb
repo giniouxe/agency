@@ -1,0 +1,7 @@
+Hello <%= @user.name %>,
+
+Welcome to the Agency's blog.
+
+Click on the link below to avtivate your account:
+
+<%= edit_account_activation_path(@user.activation_token, email: @user.email) %> 
