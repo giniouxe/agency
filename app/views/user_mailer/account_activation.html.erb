@@ -14,5 +14,14 @@
 <%= link_to 'Activate your account', edit_account_activation_url(@user.activation_token, email: @user.email) %>
 
 <p>
+  If the link above doesn't work, try to copy/paste the URL below in your browser:
+</p>
+<p>
+  <%= edit_account_activation_url(@user.activation_token, email: @user.email) %>
+</p>
+<p>
+  Regards.
+</p>
+<p>
   The Agency Team.
 </p>
