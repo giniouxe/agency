@@ -32,6 +32,11 @@ class ArticleTest < ActiveSupport::TestCase
     assert_not @article.valid?
   end
 
+  test 'excerpt should have maximum length of 350' do
+    @article.excerpt = 'a' * 500
+    assert_not @article.valid?
+  end
+
   test 'content should be present' do
     @article.content = '     '
     assert_not @article.valid?
