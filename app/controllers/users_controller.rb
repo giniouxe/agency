@@ -4,11 +4,13 @@ class UsersController < ApplicationController
   before_action :admin_user, only: :destroy
 
   def index
-    @users = User.where(activated: true).paginate(page: params[:page], per_page: 20)
+    @users = User.where(activated: true).paginate(page: params[:page],
+                                                  per_page: 20)
   end
 
   def show
     @user = User.find(params[:id])
+    @articles = @user.articles.paginate(page: params[:page], per_page: 20)
     redirect_to root_path and return unless @user.activated?
   end
 

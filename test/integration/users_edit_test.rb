@@ -2,7 +2,8 @@ require 'test_helper'
 
 class UsersEditTest < ActionDispatch::IntegrationTest
   def setup
-    @user = Fabricate(:user, name: 'Charlie', email: 'charlie@example.com',
+    @user = Fabricate(:user,
+                      name: 'Charlie', email: 'charlie@example.com',
                       password: 'croquettes', activated: true,
                       activated_at: Time.zone.now)
   end
