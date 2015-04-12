@@ -61,6 +61,10 @@ class User < ActiveRecord::Base
     reset_sent_at < 2.hours.ago
   end
 
+  def feed
+    articles
+  end
+
   private
 
     def downcase_email

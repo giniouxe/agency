@@ -1,9 +1,26 @@
-<div class="center jumbotron">
-  <h1>Agency</h1>
-  <h2>Let's communicate!</h2>
-  <%= mail_to 'agency@example.com', 'Contact', class: "btn btn-lg btn-default" %>
-</div>
-<div class="center">
-  <i class="fa fa-compass fa-5x" id="agency-logo"></i>
-  <span id="inpage-logo">Agency</span>
-</div>
+<% if logged_in? %>
+  <div class="row">
+    <aside class="col-md-6">
+      <section class="user_info">
+        <%= render 'shared/user_info' %>
+      </section>
+      <section class="article_form">
+        <%= render 'shared/article_form' %>
+      </section>
+    </aside>
+    <div class="col-md-6">
+      <h1>All articles on the blog</h1>
+      <%= render 'shared/feed' %>
+    </div>
+  </div>
+<% else %>
+  <div class="center jumbotron">
+    <h1>Agency</h1>
+    <h2>Let's communicate!</h2>
+    <%= mail_to 'agency@example.com', 'Contact', class: "btn btn-lg btn-default" %>
+  </div>
+  <div class="center">
+    <i class="fa fa-compass fa-5x" id="agency-logo"></i>
+    <span id="inpage-logo">Agency</span>
+  </div>
+<% end %>

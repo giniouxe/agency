@@ -1,8 +1,12 @@
 <li id="article-<%= article.id %>">
-	<%= link_to gravatar_for(article.user, size: 50), article.user %>
-	<span class="user"><%= article.user.name %></span>
-	<span class="title"><%= link_to article.title, article %></span>
-	<span class="timestamp">
-		Published <%= time_ago_in_words(article.created_at) %> ago.
-	</span>
+  <%= link_to gravatar_for(article.user, size: 50), article.user %>
+  <span class="user"><%= article.user.name %></span>
+  <span class="title"><%= link_to article.title, article %></span>
+  <span class="timestamp">
+    Published <%= time_ago_in_words(article.created_at) %> ago.
+    <% if current_user?(article.user) %>
+      <%= link_to 'Delete', article, method: :delete,
+                                     data: { confirm: 'Are you sure?' } %>
+    <% end %>
+  </span>
 </li>

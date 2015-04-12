@@ -1,0 +1,15 @@
+<h2>Write a new article</h2>
+<%= form_for(@article) do |f| %>
+	<%= render 'shared/error_messages', object: f.object %>
+	<div class="field">
+		<%= f.label :title %>
+		<%= f.text_field :title, placeholder: 'Your title' %>
+
+		<%= f.label :excerpt %>
+		<%= f.text_area :excerpt, placeholder: "An excerpt for your article. Will be displayed on the home page of the blog. 350 characters maximum." %>
+
+		<%= f.label :content %>
+		<%= f.text_area :content, placeholder: 'The content of your article' %>
+		<%= f.submit 'Publish', class: 'btn btn-lg btn-default' %>
+	</div>
+<% end %>
