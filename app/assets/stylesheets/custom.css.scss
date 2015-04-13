@@ -265,6 +265,37 @@ input {
   }
 }
 
+/* articles in home page */
+
+.home_articles {
+  list-style: none;
+  padding: 0;
+  li {
+    padding: 10px 0;
+    border-top: 1px solid #e8e8e8;
+  }
+  .title {
+    display: block;
+    font-size: 1.7em;
+    img {
+      display: block;
+      padding: 5px 0;
+    }
+  }
+  .excerpt {
+    display: block;
+    font-size: 1.5em;
+    img {
+      display: block;
+      padding: 5px 0;
+    }
+  }
+  .timestamp {
+    color: $gray-light;
+    display: block;
+  }
+}
+
 aside {
   textarea {
     height: 100px;
