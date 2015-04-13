@@ -3,14 +3,16 @@
 <h1><%= @article.title %></h1>
 
 <blockquote><p><%= @article.excerpt %></p></blockquote>
-
+<div class="img-responsive center-block">
+  <%= image_tag @article.picture.url if @article.picture? %>
+</div>
 <p>
-	<%= @article.content %>
+  <%= @article.content %>
 </p>
 
 <p class="text-right">
-	<%= link_to @author.name, user_path(@author) %>
+  <%= link_to @author.name, user_path(@author) %>
 </p>
 <span>
-	<%= gravatar_for @author, size: 50, html_class: 'gravatar_signature' %>
+  <%= gravatar_for @author, size: 50, html_class: 'gravatar_signature' %>
 </span>

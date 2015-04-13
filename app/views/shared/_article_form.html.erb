@@ -4,7 +4,7 @@
 	<h2>Update article</h2>
 <% end %>
 
-<%= form_for(@article) do |f| %>
+<%= form_for(@article, html: { multipart: true }) do |f| %>
 	<%= render 'shared/error_messages', object: f.object %>
 	<div class="field">
 		<%= f.label :title %>
@@ -15,6 +15,19 @@
 
 		<%= f.label :content %>
 		<%= f.text_area :content, placeholder: 'The content of your article' %>
-		<%= f.submit 'Publish', class: 'btn btn-lg btn-default' %>
+		<%= f.label :picture %>
+		<span class="picture">
+			<%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+		</span>
+		<%= f.submit 'Publish', class: 'btn btn-lg btn-primary' %>
 	</div>
 <% end %>
+
+<script type="text/javascript">
+$('#article_picture').bind('change', function() {
+	size_in_megabytes = this.files[0].size/1024/1024;
+	if (size_in_megabytes > 5) {
+		alert('Maximum file size is 5MB. Please choose a smaller file.');
+	}
+});
+</script>

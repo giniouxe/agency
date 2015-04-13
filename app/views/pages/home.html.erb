@@ -1,6 +1,7 @@
 <% if logged_in? %>
 
   <div class="row">
+    <h1>Admin page</h1>
     <aside class="col-md-6">
       <section class="user_info">
         <%= render 'shared/user_info' %>
@@ -17,10 +18,10 @@
 
 <% else %>
 
-  <div class="jumbotron">
+  <div class="row">
     <h1>Latest articles on agency's blog</h1>
     <ol class="home_articles">
-      <%= render 'articles/articles' %>
+      <%= render 'articles/all' %>
     </ol>
   </div>
 

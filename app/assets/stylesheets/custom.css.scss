@@ -166,17 +166,6 @@ footer {
   }
 }
 
-/* buttons */
-.btn-default {
-  background-color: $dark-violet;
-  color: $very-light-grey;
-  border: $black-violet;
-  &:hover {
-    background-color: $strong-dark-violet;
-    color: $very-light-grey;
-  }
-}
-
 /* forms */
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
@@ -307,5 +296,16 @@ span.picture {
   margin-top: 10px;
   input {
     border: 0;
+  }
+}
+
+.img-responsive {
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  .center-block {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
   }
 }

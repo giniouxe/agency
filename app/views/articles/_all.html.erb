@@ -1,11 +1,16 @@
 <% @articles.each do |article| %>
-	<li id="article-<%= article.id %>">
+	<div class="col-md-4">
+		<div class="thumbnail">
+			<%= image_tag article.picture.url if article.picture? %>
+		</div>
 		<span class="title"><%= link_to article.title, article %></span>
 		<span class="timestamp">
 			Published <%= time_ago_in_words(article.created_at) %> ago
 			by <%= article.user.name %>.
 		</span>
 		<span class="excerpt"><%= article.excerpt %></span>
-	</li>
+		</br>
+		<%= link_to 'Read Article', article_path(article), class: 'btn btn-sm btn-primary' %>
+	</div>
 <% end %>
 <%= will_paginate(@articles) %>

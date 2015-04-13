@@ -14,6 +14,8 @@ gem 'bcrypt'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
 gem 'pg'
+gem 'carrierwave'
+gem 'mini_magick'
 
 group :development, :test do
   gem 'byebug'
