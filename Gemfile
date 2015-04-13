@@ -16,6 +16,7 @@ gem 'bootstrap-will_paginate'
 gem 'pg'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'faker'
 
 group :development, :test do
   gem 'byebug'
@@ -23,7 +24,6 @@ group :development, :test do
   gem 'spring'
   gem 'fabrication'
   gem 'rubocop'
-  gem 'faker'
 end
 
 group :test do
