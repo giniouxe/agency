@@ -1,0 +1,16 @@
+<% provide(:title, @article.title) %>
+
+<h1><%= @article.title %></h1>
+
+<blockquote><p><%= @article.excerpt %></p></blockquote>
+
+<p>
+	<%= @article.content %>
+</p>
+
+<p class="text-right">
+	<%= link_to @author.name, user_path(@author) %>
+</p>
+<span>
+	<%= gravatar_for @author, size: 50, html_class: 'gravatar_signature' %>
+</span>

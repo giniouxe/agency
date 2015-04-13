@@ -5,7 +5,9 @@
   <span class="timestamp">
     Published <%= time_ago_in_words(article.created_at) %> ago.
     <% if current_user?(article.user) %>
-      <%= link_to 'Delete', article, method: :delete,
+      <%= link_to 'Edit', edit_article_path(article) %>
+			 |
+			<%= link_to 'Delete', article, method: :delete,
                                      data: { confirm: 'Are you sure?' } %>
     <% end %>
   </span>

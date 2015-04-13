@@ -1,0 +1,11 @@
+<% @articles.each do |article| %>
+	<li id="article-<%= article.id %>">
+		<span class="title"><%= link_to article.title, article %></span>
+		<span class="timestamp">
+			Published <%= time_ago_in_words(article.created_at) %> ago
+			by <%= article.user.name %>.
+		</span>
+		<span class="excerpt"><%= article.excerpt %></span>
+	</li>
+<% end %>
+<%= will_paginate(@articles) %>

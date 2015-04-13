@@ -13,7 +13,26 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def show
+    @article = Article.find(params[:id])
+    @author = @article.user
+  end
+
+  def edit
+    @article = current_user.articles.find(params[:id])
+    @feed_items = current_user.feed.paginate(page: params[:page], per_page: 10)
+    render 'pages/home'
+  end
+
   def update
+    if @article.update(article_params)
+      flash[:success] = 'Your article has been updated.'
+      redirect_to @article
+    else
+      @feed_items = current_user.feed.paginate(page: params[:page],
+                                               per_page: 10)
+      render 'pages/home'
+    end
   end
 
   def destroy
