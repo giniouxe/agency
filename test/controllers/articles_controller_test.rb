@@ -38,8 +38,8 @@ class ArticlesControllerTest < ActionController::TestCase
 
   test 'should redirect destroy for wrong article' do
     wrong_article = Fabricate(:article, title: 'Foo bar', excerpt: 'Si amet',
-                                         content: 'Sed sit amet elementum.',
-                                         user_id: @other_user.id)
+                                        content: 'Sed sit amet elementum.',
+                                        user_id: @other_user.id)
     log_in_as(@user, password: 'foobar')
     assert_no_difference 'Article.count' do
       delete :destroy, id: wrong_article
@@ -49,8 +49,8 @@ class ArticlesControllerTest < ActionController::TestCase
 
   test 'should redirect edit for wrong article' do
     wrong_article = Fabricate(:article, title: 'Foo bar', excerpt: 'Si amet',
-                                         content: 'Sed sit amet elementum.',
-                                         user_id: @other_user.id)
+                                        content: 'Sed sit amet elementum.',
+                                        user_id: @other_user.id)
     log_in_as(@user, password: 'foobar')
     get :edit, id: wrong_article
     assert_redirected_to root_url
