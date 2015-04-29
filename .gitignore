@@ -18,3 +18,7 @@
 
 # Ignore Spring files.
 /spring/*.pid
+
+# Ignore seeded pictures.
+/public/uploads/article/picture/*
+!/public/uploads/article/picture/*.jpg

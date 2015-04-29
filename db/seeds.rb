@@ -23,6 +23,13 @@ users = User.order(:created_at).take(6)
   title = Faker::Lorem.sentence
   excerpt = Faker::Lorem.paragraph
   content = Faker::Lorem.paragraph(3)
-  users.each { |user| user.articles.create!(title: title, excerpt: excerpt,
-                                            content: content) }
+  tag_list = %w(Foo Bar Fizz Buzz).sample(2).join(', ')
+  picture = File.open(Rails.root + "public/uploads/article/picture/#{%w(light coffee wire working writing).sample}.jpg")
+  created_at = rand(2.years).seconds.ago
+  users.each {|user| user.articles.create!(title: title,
+                                           excerpt: excerpt,
+                                           content: content,
+                                           picture: picture,
+                                           tag_list: tag_list,
+                                           created_at: created_at)}
 end
