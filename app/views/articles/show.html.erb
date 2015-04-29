@@ -10,6 +10,12 @@
   <%= @article.content %>
 </p>
 
+<div class="well">
+  <strong>Tags: </strong>
+  <% @article.tags.each do |tag| %>
+    <%= link_to tag.name, tag_path(tag), class: 'btn btn-primary btn-sm' %>
+  <% end %>
+</div>
 <p class="text-right">
   <%= link_to @author.name, user_path(@author) %>
 </p>
