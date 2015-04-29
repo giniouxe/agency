@@ -42,6 +42,17 @@ class ArticleTest < ActiveSupport::TestCase
     assert_not @article.valid?
   end
 
+  test 'article can have tags' do
+    @article.tag_list = 'foo, bar'
+    assert @article.valid?
+  end
+
+  test 'tags should be titleized' do
+    @article.tag_list = 'foo, bar'
+    @article.save!
+    assert_equal 'Foo, Bar', @article.tag_list
+  end
+
   test 'order should be most recent first' do
     id = @user.id
     most_recent = Fabricate(:article, title: 'Lorem ipsum dolor sit amet.',
@@ -59,7 +70,7 @@ class ArticleTest < ActiveSupport::TestCase
     assert_equal Article.first, most_recent
   end
 
-  test 'Articles should be destroyed when user is destroyed' do
+  test 'articles should be destroyed when user is destroyed' do
     @user.save
     @user.articles.create!(title: 'Lorem ipsum dolor sit amet.',
                            excerpt: 'Nam vel justo quis nisl.',

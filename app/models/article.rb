@@ -6,6 +6,20 @@ class Article < ActiveRecord::Base
   validates :excerpt, presence: true, length: { maximum: 350 }
   validate :picture_size
 
+  has_many :taggings
+  has_many :tags, through: :taggings
+
+  def tag_list
+    tags.collect do |tag|
+      tag.name
+    end.join(', ')
+  end
+
+  def tag_list=(tags)
+    names = tags.split(',').collect { |n| n.strip.titleize }.uniq
+    self.tags = names.collect { |n| Tag.find_or_create_by(name: n) }
+  end
+
   private
 
     def picture_size

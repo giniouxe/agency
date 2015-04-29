@@ -15,6 +15,8 @@
 
 		<%= f.label :content %>
 		<%= f.text_area :content, placeholder: 'The content of your article' %>
+		<%= f.label :tag_list, 'Tags (separated by commas)' %>
+		<%= f.text_field :tag_list, placeholder: 'Example : Ruby, Rails' %>
 		<%= f.label :picture %>
 		<span class="picture">
 			<%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
