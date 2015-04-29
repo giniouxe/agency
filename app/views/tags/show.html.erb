@@ -1,0 +1,20 @@
+<% provide :title, @tag.name %>
+
+<div class="row">
+  <aside class="col-md-3">
+    <section class="available_tags">
+      <h1>All tags</h1>
+      <div>
+      <% @tags.each do |tag| %>
+        <%= link_to tag.name, tag_path(tag), class: 'btn btn-primary btn-sm' %>
+      <% end %>
+      </div>
+    </section>
+  </aside>
+  <div class="col-md-9">
+    <h1>Articles tagged with <%= @tag.name %></h1>
+    <ol class="articles">
+    <%= render @articles %>
+    </ol>
+  </div>
+</div>
