@@ -6,7 +6,7 @@ class Article < ActiveRecord::Base
   validates :excerpt, presence: true, length: { maximum: 350 }
   validate :picture_size
 
-  has_many :taggings
+  has_many :taggings, dependent: :destroy
   has_many :tags, through: :taggings
 
   def tag_list
