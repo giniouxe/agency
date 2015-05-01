@@ -62,7 +62,7 @@ class User < ActiveRecord::Base
   end
 
   def feed
-    articles
+    Article.all
   end
 
   private
