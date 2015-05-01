@@ -1,0 +1,12 @@
+<div>
+	<% @tags.each do |tag| %>
+	<div class="tag-button">
+		<%= link_to tag.name, tag_path(tag), class: 'btn btn-primary btn-sm' %>
+		<% if current_user.admin? %>
+		 	<%= link_to 'Edit tag', edit_tag_path(tag) %>
+			 |
+			<%= link_to 'Delete tag', tag, method: :delete, data: { confirm: 'Are you sure?' } %>
+		<% end %>
+	</div>
+	<% end %>
+</div>
