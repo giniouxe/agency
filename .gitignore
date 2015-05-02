@@ -19,6 +19,9 @@
 # Ignore Spring files.
 /spring/*.pid
 
-# Ignore seeded pictures.
+# Ignore seeded pictures, except needed pictures to seed.
 /public/uploads/article/picture/*
 !/public/uploads/article/picture/*.jpg
+
+# Ignore temporary pictures.
+/public/uploads/tmp

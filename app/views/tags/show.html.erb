@@ -1,14 +1,10 @@
-<% provide :title, @tag.name %>
+<% provide :title, "#{@tag.name}: all articles" %>
 
 <div class="row">
   <aside class="col-md-3">
     <section class="available_tags">
       <h1>All tags</h1>
-      <div>
-      <% @tags.each do |tag| %>
-        <%= link_to tag.name, tag_path(tag), class: 'btn btn-primary btn-sm' %>
-      <% end %>
-      </div>
+      <%= render 'tags/index' %>
     </section>
   </aside>
   <div class="col-md-9">

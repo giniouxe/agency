@@ -1,0 +1,17 @@
+<%= provide :title, "Edit #{@tag.name}" %>
+
+<h1>Edit <%= @tag.name %></h1>
+
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+	<%= form_for(@tag) do |f| %>
+		<%= render 'shared/error_messages', object: f.object %>
+
+		<%= f.label :name %>
+		<%= f.text_field :name, class: 'form-control' %>
+
+		<%= f.submit 'Save changes', class: 'btn btn-primary btn-lg' %>
+		</div>
+	<% end %>
+	</div>
+</div>

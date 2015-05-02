@@ -7,19 +7,17 @@
         <%= gravatar_for @user, size: 50, html_class: 'gravatar' %>
         <%= @user.name %>
       </h1>
-      <div>
-        <%= link_to 'Create a new article', root_path,
-                                            class: 'btn btn-sm btn-primary' %>
-      </div>
+      <% if @user.articles.any? %>
+        <p><%= @user.articles.count %>
+           <%= 'article'.pluralize(@user.articles.count) %> published.</p>
+      <% end %><br/>
+      <div><%= link_to 'Create a new article', root_path, class: 'btn btn-sm btn-primary' %></div><br/>
+      <div><%= link_to 'Go to dashboard', root_path, class: 'btn btn-sm btn-primary' %></div>
     </section>
   </aside>
   <div class="col-md-8">
     <% if @articles.any? %>
-    <h3>
-      <%= @user.articles.count %>
-      <%= 'article'.pluralize(@user.articles.count) %>
-      publiés
-    </h3>
+    <h3>Manage published articles.</h3>
     <ol class="articles">
       <%= render @articles %>
     </ol>
