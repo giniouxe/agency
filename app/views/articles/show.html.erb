@@ -1,26 +1,43 @@
 <% provide(:title, @article.title) %>
 
-<h1><%= @article.title %></h1>
+<div class="row">
+  <div class="col-md-11 col-md-offset-1">
+    <h1><%= @article.title %></h1>
 
-<blockquote><p><%= @article.excerpt %></p></blockquote>
-<div class="img-responsive center-block">
-  <%= image_tag @article.picture.url if @article.picture? %>
-</div>
-<p>
-  <%= @article.content %>
-</p>
+    <blockquote><p><%= @article.excerpt %></p></blockquote>
+    <div class="col-md-8 col-md-offset-1 article-image">
+      <%= image_tag @article.picture.url if @article.picture? %>
+    </div>
+    <div class="col-md-11">
+      <%= @article.content %>
+    </div>
 
-<% if @article.tags.any? %>
-<div class="well">
-  <strong>Tags: </strong>
-  <% @article.tags.each do |tag| %>
-    <%= link_to tag.name, tag_path(tag), class: 'btn btn-primary btn-sm' %>
-  <% end %>
+    <% if @article.tags.any? %>
+    <div class="col-md-11 article-tags">
+      <p><strong>Tags: </strong></p>
+      <% @article.tags.each do |tag| %>
+        <%= link_to tag.name, tag_path(tag), class: 'btn btn-primary btn-sm' %>
+      <% end %>
+    </div>
+    <% end %>
+  </div>
+  </div>
+<div class="row">
+  <p class="text-right">
+    <%= link_to @author.name, user_path(@author) %>
+  </p>
+  <span>
+    <%= gravatar_for @author, size: 50, html_class: 'gravatar_signature' %>
+  </span>
 </div>
-<% end %>
-<p class="text-right">
-  <%= link_to @author.name, user_path(@author) %>
-</p>
-<span>
-  <%= gravatar_for @author, size: 50, html_class: 'gravatar_signature' %>
-</span>
+<div class="row">
+  <div class="col-md-11 col-md-offset-1">
+    <p><strong>Comments:</strong></p>
+    <% if @article.comments.any? %>
+      <%= render @comments %>
+    <% else %>
+    <p>There are no comments yet for this article.
+      Start the conversation by posting one!</p>
+    <% end %>
+  </div>
+</div>

@@ -302,13 +302,11 @@ span.picture {
   }
 }
 
-.img-responsive {
-  display: block;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  .center-block {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
+.article-image {
+  padding-top: 10px;
+  padding-bottom: 20px;
+}
+
+.article-tags {
+  margin-top: 20px;
 }
