@@ -17,6 +17,8 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     @author = @article.user
     @comments = @article.comments.paginate(page: params[:page], per_page: 10)
+    @comment = Comment.new
+    @comment.article_id = @article.id
   end
 
   def edit

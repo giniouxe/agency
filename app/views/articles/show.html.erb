@@ -11,28 +11,28 @@
     <div class="col-md-11">
       <%= @article.content %>
     </div>
-
+  </div>
+  <div class="col-md-7 col-md-offset-1 article-bottom">
     <% if @article.tags.any? %>
-    <div class="col-md-11 article-tags">
       <p><strong>Tags: </strong></p>
       <% @article.tags.each do |tag| %>
         <%= link_to tag.name, tag_path(tag), class: 'btn btn-primary btn-sm' %>
       <% end %>
-    </div>
     <% end %>
   </div>
+  <div class="col-md-4 article-bottom">
+    <p>Written by:</p>
+    <%= gravatar_for @author, size: 50 %> <%= link_to @author.name, user_path(@author) %>
   </div>
+</div>
 <div class="row">
-  <p class="text-right">
-    <%= link_to @author.name, user_path(@author) %>
-  </p>
-  <span>
-    <%= gravatar_for @author, size: 50, html_class: 'gravatar_signature' %>
-  </span>
+  <div class="col-md-7 col-md-offset-2">
+  <%= render partial: 'comments/form' %>
+  </div>
 </div>
 <div class="row">
   <div class="col-md-11 col-md-offset-1">
-    <p><strong>Comments:</strong></p>
+    <h3><strong>Comments:</strong></h3>
     <% if @article.comments.any? %>
       <%= render @comments %>
     <% else %>

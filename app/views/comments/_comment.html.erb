@@ -1,5 +1,5 @@
 <div class="well col-md-11">
   <p>Posted by <strong><%= comment.author %></strong>
-    at <%= comment.created_at %></p>
+    at <%= comment.created_at.to_formatted_s(:long_ordinal) %></p>
   <p><%= comment.body %></p>
 </div>

@@ -1,0 +1,11 @@
+<p><strong>Join the conversation:</strong></p>
+<%= form_for [@article, @comment] do |f| %>
+	<%= render 'shared/error_messages', object: f.object %>
+	<%= f.label :author, 'Your name' %>
+	<%= f.text_field :author, class: 'form-control' %>
+	<%= f.label :body, 'Your comment' %>
+	<%= f.text_area :body, class: 'form-control' %>
+	<%= f.submit 'Post', class: 'btn btn-primary' %>
+	</div>
+<% end %>
+</div>
