@@ -1,7 +1,22 @@
 <div class="center jumbotron">
   <h1>Solicom</h1>
   <h2>Agence citoyenne et solidaire de communication</h2>
-  <%= mail_to 'bastienbrunis@agencesolicom.fr', 'Contact', class: "btn btn-lg btn-default" %>
+  <div class = "contact-button">
+    <%= mail_to 'bastienbrunis@agencesolicom.fr', 'Contact', class: "btn btn-lg btn-default" %>
+  </div>
+  <div class="event-button">
+    <strong><%= link_to 'Lancement le 22 mai 2015', 'http://lancement-agence-solicom.eventbrite.fr/', target: "_blank", class: "btn btn-lg btn-default" %></strong>
+  </div>
 </div>
-<div class="center"><%= image_tag("solicom.png",
-{ alt: "Solicom, agence de communication citoyenne et solidaire", id: "solicom-logo" }) %></div>
+<div class="row">
+  <div class="center col-md-10 col-md-offset-1">
+    <%= image_tag("logo-solicom.jpg", { alt: "Solicom, agence de communication citoyenne et solidaire", id: "solicom-logo" }) %>
+    <h4>Solicom est une agence de conseil en communication créée en 2015,<br/> qui recrute et forme des jeunes talents diplômés issus des quartiers populaires.</h4>
+    <h4>Solicom est une agence à vocation citoyenne et solidaire, qui propose à ses clients une offre performante,<br/> couvrant l’ensemble des besoins en communication, du conseil à la production.</h4>
+    <h4>Solicom est un projet d’innovation économique et sociale durable<br/> implanté sur le territoire de La Courneuve en Seine-Saint-Denis,<br/> disposant de références solides, et soutenu par de nombreux acteurs.</h4>
+    <h3>Soirée de lancement de l’agence Solicom<br/>
+      le 22 mai 2015 à La Courneuve</h3>
+    <%= link_to 'Participer',  'http://lancement-agence-solicom.eventbrite.fr/', target: "_blank", class: 'btn btn-lg btn-default event-button' %>
+    <h4><%= link_to 'Télécharger l’invitation (PDF)', '/Invitation-Solicom-220515.pdf' %> </h4>
+  </div>
+</div>
