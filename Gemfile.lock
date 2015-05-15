@@ -72,11 +72,30 @@ GEM
     debug_inspector (0.0.2)
     debugger-linecache (1.2.0)
     erubis (2.7.0)
+    excon (0.45.3)
     execjs (2.2.2)
     fabrication (2.12.2)
     faker (1.4.3)
       i18n (~> 0.5)
     ffi (1.9.6)
+    fog-aws (0.2.2)
+      fog-core (~> 1.27)
+      fog-json (~> 1.0)
+      fog-xml (~> 0.1)
+      ipaddress (~> 0.8)
+    fog-core (1.30.0)
+      builder
+      excon (~> 0.45)
+      formatador (~> 0.2)
+      mime-types
+      net-scp (~> 1.1)
+      net-ssh (>= 2.1.3)
+    fog-json (1.0.1)
+      fog-core (~> 1.0)
+      multi_json (~> 1.0)
+    fog-xml (0.1.2)
+      fog-core
+      nokogiri (~> 1.5, >= 1.5.11)
     font-awesome-sass (4.3.2.1)
       sass (~> 3.2)
     formatador (0.2.5)
@@ -97,6 +116,7 @@ GEM
     hike (1.2.3)
     hitimes (1.2.2)
     i18n (0.7.0)
+    ipaddress (0.8.0)
     jbuilder (2.2.6)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
@@ -129,6 +149,9 @@ GEM
       ruby-progressbar
     multi_json (1.10.1)
     nenv (0.2.0)
+    net-scp (1.2.1)
+      net-ssh (>= 2.6.5)
+    net-ssh (2.9.2)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
     notiffany (0.0.3)
@@ -241,6 +264,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   fabrication
   faker
+  fog-aws
   font-awesome-sass
   guard-minitest (= 2.3.1)
   jbuilder (~> 2.0)

@@ -15,6 +15,7 @@ gem 'will_paginate'
 gem 'bootstrap-will_paginate'
 gem 'pg'
 gem 'carrierwave'
+gem 'fog-aws'
 gem 'mini_magick'
 gem 'faker'
 
