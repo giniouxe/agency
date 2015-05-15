@@ -23,6 +23,7 @@ class ArticlesController < ApplicationController
 
   def edit
     @article = current_user.articles.find(params[:id])
+    @tags = @article.tags
     @feed_items = current_user.feed.paginate(page: params[:page], per_page: 10)
     render 'pages/home'
   end
